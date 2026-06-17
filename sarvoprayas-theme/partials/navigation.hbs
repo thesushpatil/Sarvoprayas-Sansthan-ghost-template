@@ -1,0 +1,16 @@
+{{!-- Custom navigation partial.
+     Menu items are managed in Ghost Admin > Settings > Navigation.
+     Recommended primary menu for this site:
+       Home               /
+       Organization Journey  /about/
+       Ongoing Projects   /ongoing-projects/
+       Past Projects      /past-projects/
+       Photos & Videos    /gallery/
+       Upcoming Events    /events/
+       Contact            /contact/
+--}}
+{{#foreach navigation}}
+    <li class="nav-item{{#if current}} nav-item--active{{/if}}">
+        <a href="{{url}}">{{label}}</a>
+    </li>
+{{/foreach}}

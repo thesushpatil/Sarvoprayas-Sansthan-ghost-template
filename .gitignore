@@ -1,0 +1,25 @@
+# Ignore everything by default
+*
+
+# Include only what we want to push
+!.gitignore
+!README.md
+
+# Theme folder (entire)
+!sarvoprayas-theme/
+!sarvoprayas-theme/**
+
+# Docker setup
+!Docker/
+!Docker/**
+
+# Images folder
+!Images/
+!Images/**
+
+# Ghost export files
+!sarvoprayas-sansthan.ghost.*.json
+!sarvoprayas-sansthan.ghost.*.csv
+
+# User manual
+!Sarvo-Prayas-Website-User-Manual.html

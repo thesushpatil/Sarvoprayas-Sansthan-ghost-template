@@ -1,0 +1,95 @@
+{
+  "name": "sarvoprayas-theme",
+  "description": "Custom Ghost theme for Sarvo Prayas Sansthan (SPS) — an NGO working on child protection and rural livelihood in Bihar, India.",
+  "version": "2.0.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Sarvo Prayas Sansthan",
+    "email": "sarvoprayassansthan@gmail.com"
+  },
+  "keywords": [
+    "ghost",
+    "ghost-theme",
+    "theme",
+    "ngo",
+    "nonprofit",
+    "india",
+    "bihar"
+  ],
+  "config": {
+    "posts_per_page": 9,
+    "image_sizes": {
+      "xs": { "width": 160 },
+      "s":  { "width": 480 },
+      "m":  { "width": 800 },
+      "l":  { "width": 1200 },
+      "xl": { "width": 2000 }
+    },
+    "card_assets": true,
+    "custom": {
+      "hero_title": {
+        "type": "text",
+        "default": "Protecting children and building rural livelihoods across Northern Bihar."
+      },
+      "brand_tagline": {
+        "type": "text",
+        "default": "Child Protection • Rural Livelihoods"
+      },
+      "contact_phone_1": {
+        "type": "text",
+        "default": "+91 94305 09449"
+      },
+      "contact_phone_2": {
+        "type": "text",
+        "default": "+91 98350 04323"
+      },
+      "contact_email_1": {
+        "type": "text",
+        "default": "sarvoprayassansthan@gmail.com"
+      },
+      "reg_society_number": {
+        "type": "text",
+        "default": "1247/03-04"
+      },
+      "reg_12a_number": {
+        "type": "text",
+        "default": "35/2006-07"
+      },
+      "reg_80g_number": {
+        "type": "text",
+        "default": "4418-19/2006-07"
+      },
+      "pan_number": {
+        "type": "text",
+        "default": "AAAJS2700B"
+      },
+      "bank1_name": {
+        "type": "text",
+        "default": "Central Bank of India"
+      },
+      "bank1_branch": {
+        "type": "text",
+        "default": "Main Branch, Madhubani"
+      },
+      "bank1_account": {
+        "type": "text",
+        "default": "1557183287"
+      },
+      "bank1_ifsc": {
+        "type": "text",
+        "default": "CBIN0280053"
+      },
+      "office_address_1": {
+        "type": "text",
+        "default": "Shankar Chowk, Ward No. 6, PO + Dist, Madhubani, Bihar, 847211, India"
+      },
+      "office_address_2": {
+        "type": "text",
+        "default": "Ward No. 09, Mohalla Tharesari, Behind Meena Bazaar Chowk, Near R.K. College Gate No. 2, Madhubani, 847213, Bihar"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{{#if pagination}}
+<nav class="pagination" role="navigation" aria-label="Pagination">
+    {{#if prev}}
+        <a class="btn pagination-link" href="{{page_url prev}}" aria-label="Previous page">&larr; Newer</a>
+    {{else}}
+        <span class="btn pagination-link is-disabled" aria-disabled="true">&larr; Newer</span>
+    {{/if}}
+
+    <span class="pagination-status">Page {{pagination.page}} of {{pagination.pages}}</span>
+
+    {{#if next}}
+        <a class="btn pagination-link" href="{{page_url next}}" aria-label="Next page">Older &rarr;</a>
+    {{else}}
+        <span class="btn pagination-link is-disabled" aria-disabled="true">Older &rarr;</span>
+    {{/if}}
+</nav>
+{{/if}}

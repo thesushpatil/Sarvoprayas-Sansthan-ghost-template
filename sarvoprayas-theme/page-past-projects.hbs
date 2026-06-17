@@ -1,0 +1,46 @@
+{{!< default}}
+
+{{#post}}
+<article class="page-full">
+    <header class="page-hero">
+        <div class="container page-hero-inner">
+            <p class="section-eyebrow">Our Impact</p>
+            <h1 class="page-title">{{title}}</h1>
+            <p class="page-lead">Programs we have successfully delivered with our partners over the years.</p>
+        </div>
+    </header>
+
+    <section class="projects-section">
+        <div class="container">
+
+            {{#if content}}
+                <div class="page-content container-narrow" style="padding: 0 0 40px;">{{content}}</div>
+            {{/if}}
+
+            {{!-- Pulls posts tagged "past-project" — title-only cards (no images) --}}
+            {{#get "posts" filter="tag:past-project" limit="100" include="tags" as |projects|}}
+                {{#if projects}}
+                    <div class="past-projects-grid" data-paginate="9">
+                        {{#foreach projects}}
+                            <a class="past-project-card" href="{{url}}">
+                                <span class="past-project-name">{{title}}</span>
+                                <span class="past-project-arrow" aria-hidden="true">&rarr;</span>
+                            </a>
+                        {{/foreach}}
+                    </div>
+                {{else}}
+                    <div class="past-projects-grid">
+                        <span class="past-project-card"><span class="past-project-name">Child Line India Foundation</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
+                        <span class="past-project-card"><span class="past-project-name">Livelihood Promotion: CWS</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
+                        <span class="past-project-card"><span class="past-project-name">Health Program: Mother &amp; Child</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
+                        <span class="past-project-card"><span class="past-project-name">Protection of Street &amp; Working Children</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
+                        <span class="past-project-card"><span class="past-project-name">SuPoshan: Nutrition</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
+                        <span class="past-project-card"><span class="past-project-name">Adult Literacy Program</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
+                    </div>
+                {{/if}}
+            {{/get}}
+
+        </div>
+    </section>
+</article>
+{{/post}}

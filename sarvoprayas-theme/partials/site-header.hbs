@@ -1,0 +1,86 @@
+<header class="site-header" id="site-header" role="banner">
+    <div class="container header-inner">
+
+        {{!-- Brand / Logo --}}
+        <a class="site-brand" href="{{@site.url}}" aria-label="{{@site.title}}, Home">
+            {{!-- Use Ghost Admin logo if uploaded, otherwise fall back to the static PNG --}}
+            {{#if @site.logo}}
+                <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}} logo" width="56" height="56">
+            {{else}}
+                <img class="site-logo" src="{{asset "Images/SPS logo.webp"}}" alt="Sarvo Prayas Sansthan logo" width="56" height="56" loading="eager">
+            {{/if}}
+            <span class="site-brand-text">
+                <span class="site-brand-name">{{@site.title}}</span>
+                <span class="site-brand-tagline">{{@custom.brand_tagline}}</span>
+            </span>
+        </a>
+
+        {{!-- Mobile hamburger --}}
+        <button class="nav-toggle" id="nav-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="site-nav">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+        </button>
+
+        {{!-- Navigation — sections with dropdown sub-menus --}}
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+            <ul class="nav-menu" role="list">
+
+                <li class="nav-item"><a href="{{@site.url}}">Home</a></li>
+
+                {{!-- PROGRAM dropdown: Ongoing + Past Projects --}}
+                <li class="nav-item has-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Program
+                        <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <ul class="nav-dropdown" role="list">
+                        <li><a href="/ongoing-projects/">Ongoing Projects</a></li>
+                        <li><a href="/past-projects/">Past Projects</a></li>
+                    </ul>
+                </li>
+
+                {{!-- GALLERY dropdown: Photos + Videos --}}
+                <li class="nav-item has-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Gallery
+                        <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <ul class="nav-dropdown" role="list">
+                        <li><a href="/gallery/">Photos</a></li>
+                        <li><a href="/videos/">Videos</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a href="/events/">Events</a></li>
+
+                {{!-- GET INVOLVED dropdown: About + Contact --}}
+                <li class="nav-item has-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Get Involved
+                        <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <ul class="nav-dropdown" role="list">
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            {{!-- Right side: Donate button (red) then EN/हिं toggle at far right --}}
+            <div class="header-actions">
+                <a class="btn btn-accent header-donate" href="/donate/" id="header-donate-btn">Donate</a>
+
+                <div class="lang-toggle notranslate" translate="no" role="group" aria-label="Language selector">
+                    <button type="button" class="lang-btn is-active notranslate" translate="no" data-lang="en" aria-pressed="true">EN</button>
+                    <button type="button" class="lang-btn notranslate" translate="no" data-lang="hi" aria-pressed="false">हिं</button>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</header>

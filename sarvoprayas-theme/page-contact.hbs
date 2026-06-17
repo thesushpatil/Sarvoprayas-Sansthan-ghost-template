@@ -1,0 +1,88 @@
+{{!< default}}
+
+{{#post}}
+<article class="page-full">
+    <header class="page-hero">
+        <div class="container page-hero-inner">
+            <p class="section-eyebrow">Contact</p>
+            <h1 class="page-title">{{title}}</h1>
+            <p class="page-lead">Donors, partners and community members, we would love to hear from you.</p>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+
+                {{!-- Contact info panel --}}
+                <div class="contact-info-card">
+                    {{#if content}}
+                        {{content}}
+                    {{/if}}
+
+                    <div class="contact-info-item">
+                        <p class="contact-info-label">Head Office</p>
+                        <address>
+                            {{#if @custom.office_address_1}}{{@custom.office_address_1}}{{else}}Shankar Chowk, Ward No. 6,<br>
+                            PO + Dist, Madhubani,<br>
+                            Bihar, 847211, India{{/if}}
+                        </address>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <p class="contact-info-label">Branch Office</p>
+                        <address>
+                            {{#if @custom.office_address_2}}{{@custom.office_address_2}}{{else}}Ward No. 09, Mohalla Tharesari,<br>
+                            Behind Meena Bazaar Chowk,<br>
+                            Near R.K. College Gate No. 2,<br>
+                            Madhubani, 847213, Bihar{{/if}}
+                        </address>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <p class="contact-info-label">Phone</p>
+                        <address>
+                            <a href="tel:{{@custom.contact_phone_1}}">{{@custom.contact_phone_1}}</a><br>
+                            <a href="tel:{{@custom.contact_phone_2}}">{{@custom.contact_phone_2}}</a>
+                        </address>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <p class="contact-info-label">Email</p>
+                        <address>
+                            <a href="mailto:{{@custom.contact_email_1}}">{{@custom.contact_email_1}}</a>
+                        </address>
+                    </div>
+                </div>
+
+                {{!-- Contact form --}}
+                <div class="contact-form-card">
+                    <h2>Send a message</h2>
+                    {{!-- Placeholder form. Wire to a form handler / integration later. --}}
+                    <form class="contact-form" id="contact-form" action="#" method="post" novalidate>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" name="name" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" name="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-org">Organisation <span style="font-weight:400; color: var(--c-light);">(optional)</span></label>
+                            <input type="text" id="contact-org" name="organization" autocomplete="organization">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="contact-submit">Send Message</button>
+                        <p class="form-note">Form submission will be connected to an email handler before launch.</p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</article>
+{{/post}}

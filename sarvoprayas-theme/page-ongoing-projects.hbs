@@ -1,0 +1,50 @@
+{{!< default}}
+
+{{#post}}
+<article class="page-full">
+    <header class="page-hero">
+        <div class="container page-hero-inner">
+            <p class="section-eyebrow">Our Work</p>
+            <h1 class="page-title">{{title}}</h1>
+            <p class="page-lead">The projects we are actively running today across Madhubani, Darbhanga and Supaul.</p>
+        </div>
+    </header>
+
+    <section class="projects-section">
+        <div class="container">
+
+            {{!-- Optional intro content from Ghost editor --}}
+            {{#if content}}
+                <div class="page-content container-narrow" style="padding: 0 0 40px;">{{content}}</div>
+            {{/if}}
+
+            {{!-- Pulls posts tagged "ongoing-project" --}}
+            {{#get "posts" filter="tag:ongoing-project" limit="100" include="tags" as |projects|}}
+                {{#if projects}}
+                    <div class="cards-grid" data-paginate="6">
+                        {{#foreach projects}}
+                            {{> "post-card"}}
+                        {{/foreach}}
+                    </div>
+                {{else}}
+                    <div class="cards-grid">
+                        {{> "project-placeholder"
+                            img=(asset "Images/gallery/leher/leher-01.webp")
+                            name="LEHER: Child Protection"
+                            desc="Protecting children from abuse, child labour and child marriage across Rajnagar, Pandaul and Bisfi blocks through Village Child Protection Committees (VCPCs)."}}
+                        {{> "project-placeholder"
+                            img=(asset "Images/gallery/jrc/jrc-01.webp")
+                            name="Just Rights for Children"
+                            desc="Preventing child marriage, sexual abuse and trafficking in Madhubani and Supaul districts through community awareness and legal support."}}
+                        {{> "project-placeholder"
+                            img=(asset "Images/gallery/heifer/heifer-01.webp")
+                            name="Heifer International India"
+                            desc="Improving incomes through livestock and agriculture for 4,000+ families across 19 panchayats in Pandaul block, Madhubani."}}
+                    </div>
+                {{/if}}
+            {{/get}}
+
+        </div>
+    </section>
+</article>
+{{/post}}

@@ -1,0 +1,27 @@
+{{!< default}}
+
+{{#tag}}
+<header class="page-hero">
+    <div class="container page-hero-inner">
+        <p class="section-eyebrow">Topic</p>
+        <h1 class="page-title">{{name}}</h1>
+        {{#if description}}<p class="page-lead">{{description}}</p>{{/if}}
+    </div>
+</header>
+{{/tag}}
+
+<section class="section section-bg-white">
+    <div class="container">
+        {{#if posts}}
+            <div class="cards-grid">
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        {{else}}
+            <p class="empty-note">No posts under this topic yet.</p>
+        {{/if}}
+    </div>
+</section>
+
+{{> pagination}}

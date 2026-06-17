@@ -1,0 +1,54 @@
+{{!< default}}
+
+{{#post}}
+<article class="page-full">
+    <header class="page-hero">
+        <div class="container page-hero-inner">
+            <p class="section-eyebrow">Gallery</p>
+            <h1 class="page-title">{{title}}</h1>
+            <p class="page-lead">Watch stories and reports from our work in the field. New videos are added on an ongoing basis.</p>
+        </div>
+    </header>
+
+    <section class="gallery-section">
+        <div class="container">
+
+            {{#if content}}
+                <div class="page-content container-narrow" style="padding: 0 0 40px;">{{content}}</div>
+            {{/if}}
+
+            {{!-- Pulls posts tagged "video". Each post's feature image becomes a video tile. --}}
+            {{#get "posts" filter="tag:video" limit="100" as |videos|}}
+                {{#if videos}}
+                    <div class="gallery-grid" data-paginate="6">
+                        {{#foreach videos}}
+                            <a class="gallery-item video-item" href="{{url}}" aria-label="{{title}}">
+                                {{#if feature_image}}
+                                    <img src="{{img_url feature_image size="m"}}"
+                                         alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                         loading="lazy">
+                                {{else}}
+                                    <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                                {{/if}}
+                                <span class="video-play" aria-hidden="true">&#9654;</span>
+                                <span class="gallery-caption">{{title}}</span>
+                            </a>
+                        {{/foreach}}
+                    </div>
+                {{else}}
+                    {{!-- Skeleton placeholders shown until real videos are uploaded --}}
+                    <div class="gallery-grid">
+                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                    </div>
+                {{/if}}
+            {{/get}}
+
+        </div>
+    </section>
+</article>
+{{/post}}

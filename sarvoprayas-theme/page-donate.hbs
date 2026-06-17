@@ -1,0 +1,57 @@
+{{!< default}}
+
+{{#post}}
+<article class="page-full">
+    <header class="page-hero">
+        <div class="container page-hero-inner">
+            <p class="section-eyebrow">Support Us</p>
+            <h1 class="page-title">{{title}}</h1>
+            <p class="page-lead">
+                Your contribution supports child protection and rural livelihoods
+                across Madhubani, Darbhanga and Supaul. Donations are eligible
+                for tax exemption under 80G.
+            </p>
+        </div>
+    </header>
+
+    <section class="donate-section">
+        <div class="container container-narrow">
+
+            {{#if content}}
+                <div class="donate-intro">{{content}}</div>
+            {{/if}}
+
+            {{!-- Bank account details (donors transfer directly; no QR code per requirement) --}}
+            <div class="donate-grid donate-grid-single">
+
+                <section class="donate-card" aria-labelledby="donate-india-heading">
+                    <h2 id="donate-india-heading">For Indian Contributions</h2>
+                    <p class="donate-card-sub">Donate directly to our official bank account below.</p>
+
+                    <div class="bank-accounts bank-accounts-single">
+                        <dl class="bank-details">
+                            <p class="bank-bank-name">{{@custom.bank1_name}}</p>
+                            <div class="bank-row"><dt class="bank-label">Branch</dt><dd class="bank-value">{{@custom.bank1_branch}}</dd></div>
+                            <div class="bank-row"><dt class="bank-label">Account No.</dt><dd class="bank-value">{{@custom.bank1_account}}</dd></div>
+                            <div class="bank-row"><dt class="bank-label">IFSC</dt><dd class="bank-value">{{@custom.bank1_ifsc}}</dd></div>
+                        </dl>
+                    </div>
+
+                    <p class="donate-note">&#10003; 80G registered &middot; Eligible for 50% tax deduction</p>
+                </section>
+
+            </div>
+
+            <aside class="donate-legal">
+                <h3>Registration &amp; Tax Exemption</h3>
+                <p>
+                    Registered under Societies Registration Act, 1860 (No. {{@custom.reg_society_number}}).
+                    12A registered ({{@custom.reg_12a_number}}). 80G registered ({{@custom.reg_80g_number}}).
+                    PAN: {{@custom.pan_number}}. Donations from Indian residents are eligible for
+                    50% tax deduction under Section 80G of the Income Tax Act.
+                </p>
+            </aside>
+        </div>
+    </section>
+</article>
+{{/post}}

@@ -1,0 +1,54 @@
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-inner">
+
+            <div class="footer-col footer-about">
+                <span class="footer-brand">{{@site.title}}</span>
+                <p class="footer-desc">{{@site.description}}</p>
+                <p class="footer-reg">
+                    Reg. under Societies Registration Act, 1860 (No.&nbsp;{{@custom.reg_society_number}}).<br>
+                    12A &amp; 80G &amp; FCRA registered. PAN: {{@custom.pan_number}}.
+                </p>
+            </div>
+
+            <div class="footer-col footer-links">
+                <h3 class="footer-heading">Explore</h3>
+                <ul>
+                    <li><a href="/about/">Organization Journey</a></li>
+                    <li><a href="/ongoing-projects/">Ongoing Projects</a></li>
+                    <li><a href="/past-projects/">Past Projects</a></li>
+                    <li><a href="/gallery/">Photos &amp; Videos</a></li>
+                    <li><a href="/events/">Upcoming Events</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-links">
+                <h3 class="footer-heading">Get Involved</h3>
+                <ul>
+                    <li><a href="/donate/">Donate</a></li>
+                    <li><a href="/contact/">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-contact">
+                <h3 class="footer-heading">Reach Us</h3>
+                <address>
+                    {{#if @custom.office_address_1}}{{@custom.office_address_1}}{{else}}Shankar Chowk, Ward No. 6,<br>
+                    PO + Dist, Madhubani,<br>
+                    Bihar, 847211, India{{/if}}<br><br>
+                    <a href="tel:{{@custom.contact_phone_1}}">{{@custom.contact_phone_1}}</a><br>
+                    <a href="tel:{{@custom.contact_phone_2}}">{{@custom.contact_phone_2}}</a><br><br>
+                    <a href="mailto:{{@custom.contact_email_1}}">{{@custom.contact_email_1}}</a>
+                </address>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <span>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</span>
+            <span>Making communities a better place to live in.</span>
+        </div>
+    </div>
+</footer>

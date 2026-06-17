@@ -1,0 +1,11 @@
+<article class="card focus-card">
+    {{#if img}}
+        <div class="card-media-wrap"><img class="card-media" src="{{img}}" alt="{{name}}" loading="lazy"></div>
+    {{else}}
+        <div class="card-media placeholder" role="img" aria-label="Image placeholder">Image coming soon</div>
+    {{/if}}
+    <div class="card-body">
+        <h3 class="card-title">{{name}}</h3>
+        <p>{{desc}}</p>
+    </div>
+</article>

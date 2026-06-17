@@ -1,0 +1,366 @@
+{{!< default}} {{!--============================================================HOME / INDEX PAGE Sections: Hero · Stats
+    · Focus Areas · Journey Teaser · Latest Updates · Partners ·
+    CTA============================================================--}} {{!--=====HERO=====--}} <section class="hero"
+    id="hero" aria-label="Homepage hero">
+
+    <div class="hero-bg" id="hero-bg" aria-hidden="true">
+        {{!-- Dynamic hero slideshow: create ONE post tagged "hero-slider" and add
+              images to its body. Each image becomes a rotating background slide.
+              Falls back to the bundled image when no such post exists. --}}
+        {{#get "posts" filter="tag:hero-slider" limit="1" as |heroslides|}}
+        {{#if heroslides}}
+            {{#foreach heroslides}}<div class="hero-slides-src" hidden>{{content}}</div>{{/foreach}}
+        {{else}}
+            <img src="{{asset "Images/frontHero.webp"}}" alt="">
+        {{/if}}
+        {{/get}}
+    </div>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+
+        <p class="hero-eyebrow">Sarvo Prayas Sansthan, Bihar, India</p>
+
+        <h1 class="hero-title">
+            {{#if @custom.hero_title}}{{@custom.hero_title}}{{else}}Protecting children and building<br>
+            <em>rural livelihoods</em> across<br>
+            Northern Bihar.{{/if}}
+        </h1>
+
+        <p class="hero-lead">
+            Join Sarvo Prayas Sansthan in protecting children from abuse,
+            marriage and trafficking, and building sustainable livelihoods
+            for rural families across Madhubani, Darbhanga and Supaul.
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-accent" href="/about/" id="hero-cta-mission">Join Our Mission</a>
+            <a class="btn btn-outline-white" href="/donate/" id="hero-cta-donate">Support Our Work</a>
+        </div>
+
+        <div class="hero-trust" aria-label="Certifications">
+            <span class="trust-item">
+                <svg width="14" height="14" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 1l1.9 3.8 4.1.6-3 2.9.7 4.2L8 10.4l-3.7 1.9.7-4.2-3-2.9 4.1-.6z" fill="currentColor"
+                        opacity=".7" />
+                </svg>
+                FCRA Registered
+            </span>
+            <span class="trust-divider" aria-hidden="true"></span>
+            <span class="trust-item">
+                <svg width="14" height="14" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+                    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" opacity=".7" />
+                    <path d="M5 8l2.5 2.5L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        opacity=".7" />
+                </svg>
+                80G Tax Exemption
+            </span>
+            <span class="trust-divider" aria-hidden="true"></span>
+            <span class="trust-item">
+                <svg width="14" height="14" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+                    <rect x="2" y="2" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.5"
+                        opacity=".7" />
+                    <path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        opacity=".7" />
+                </svg>
+                Societies Act 1860
+            </span>
+            <span class="trust-divider" aria-hidden="true"></span>
+            <span class="trust-item">
+                <svg width="14" height="14" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 2C5.2 2 3 4.2 3 7c0 4 5 8 5 8s5-4 5-8c0-2.8-2.2-5-5-5z" stroke="currentColor"
+                        stroke-width="1.5" opacity=".7" />
+                </svg>
+                Madhubani, Bihar
+            </span>
+        </div>
+
+    </div>
+    </section>
+
+    {{!-- ===== OUR IMPACT (STATS) ===== --}}
+    <section class="stats-band" aria-label="Our impact statistics">
+        <div class="container">
+            {{#get "posts" filter="tag:stats" limit="1" as |statspost|}}
+            {{#if statspost}}
+                {{!-- One post tagged "stats": each bullet is one stat.
+                      Bold the number at the start, then the label. --}}
+                <div class="stats-grid stats-rich">
+                    {{#foreach statspost}}{{content}}{{/foreach}}
+                </div>
+            {{else}}
+            <div class="stats-grid">
+                <div class="stat-cell">
+                    <span class="stat-number" data-target="22" data-suffix="+">22+</span>
+                    <span class="stat-label">Years of Service</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-number" data-target="75" data-suffix="+">75+</span>
+                    <span class="stat-label">Child Marriages Prevented</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-number" data-target="4000" data-suffix="+">4,000+</span>
+                    <span class="stat-label">Families Reached</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-number" data-target="185" data-suffix="">185</span>
+                    <span class="stat-label">Self-Help Groups</span>
+                </div>
+            </div>
+            {{/if}}
+            {{/get}}
+        </div>
+    </section>
+
+    {{!-- ===== FOCUS AREAS ===== --}}
+    <section class="section section-bg-white" id="focus-areas">
+        <div class="container">
+            <header class="section-head">
+                <p class="section-eyebrow">What we do</p>
+                <h2 class="section-title">Two causes. One community.</h2>
+                <p class="section-lead">
+                    For over two decades SPS has tackled two deeply connected challenges
+                    holding Bihar&rsquo;s rural families back.
+                </p>
+            </header>
+
+            <div class="cards-grid-2">
+                <article class="focus-card card" id="focus-child-protection">
+                    {{#get "posts" filter="tag:home-focus-child" limit="1" as |hchild|}}
+                    {{#if hchild}}
+                        {{#foreach hchild}}
+                        <div class="card-media-wrap">
+                            {{#if feature_image}}
+                                <img class="card-media" src="{{img_url feature_image size="m"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                            {{else}}
+                                <img class="card-media" src="{{asset "Images/gallery/leher/leher-03.webp"}}" alt="Children in a child protection programme" loading="lazy">
+                            {{/if}}
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{title}}</h3>
+                            {{content}}
+                            <a class="card-arrow" href="/ongoing-projects/" aria-label="See child protection projects">See projects &rarr;</a>
+                        </div>
+                        {{/foreach}}
+                    {{else}}
+                        <div class="card-media-wrap"><img class="card-media" src="{{asset "Images/gallery/leher/leher-03.webp"}}" alt="Children in a child protection programme" loading="lazy"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Child Protection</h3>
+                            <p>
+                                Preventing child marriage, child labour, trafficking and abuse,
+                                and mainstreaming children back into school through Village Child
+                                Protection Committees (VCPCs) across 19+ panchayats.
+                            </p>
+                            <a class="card-arrow" href="/ongoing-projects/" aria-label="See child protection projects">See projects &rarr;</a>
+                        </div>
+                    {{/if}}
+                    {{/get}}
+                </article>
+
+                <article class="focus-card card" id="focus-livelihood">
+                    {{#get "posts" filter="tag:home-focus-livelihood" limit="1" as |hlivelihood|}}
+                    {{#if hlivelihood}}
+                        {{#foreach hlivelihood}}
+                        <div class="card-media-wrap">
+                            {{#if feature_image}}
+                                <img class="card-media" src="{{img_url feature_image size="m"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+                            {{else}}
+                                <img class="card-media" src="{{asset "Images/gallery/heifer/heifer-02.webp"}}" alt="Livelihood and livestock programme" loading="lazy">
+                            {{/if}}
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{title}}</h3>
+                            {{content}}
+                            <a class="card-arrow" href="/ongoing-projects/" aria-label="See livelihood projects">See projects &rarr;</a>
+                        </div>
+                        {{/foreach}}
+                    {{else}}
+                        <div class="card-media-wrap"><img class="card-media" src="{{asset "Images/gallery/heifer/heifer-02.webp"}}" alt="Livelihood and livestock programme" loading="lazy"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Livelihood</h3>
+                            <p>
+                                Improving incomes through livestock, organic farming, kitchen gardens
+                                and self-help groups that build long-term economic security for
+                                flood-prone rural families.
+                            </p>
+                            <a class="card-arrow" href="/ongoing-projects/" aria-label="See livelihood projects">See projects &rarr;</a>
+                        </div>
+                    {{/if}}
+                    {{/get}}
+                </article>
+            </div>
+        </div>
+    </section>
+
+    {{!-- ===== ORGANISATION JOURNEY TEASER ===== --}}
+    <section class="section section-bg-cream journey-section" id="journey-teaser">
+        <div class="container">
+            <div class="journey-grid">
+                <div class="journey-content">
+                    <p class="section-eyebrow">Our story</p>
+                    <h2 class="section-title">Started by women, for the community.</h2>
+                    <p>
+                        Founded in 2004 by a group of determined women in Madhubani,
+                        Sarvo Prayas Sansthan began with a simple conviction: the most
+                        marginalised communities in flood-prone Northern Bihar deserved
+                        focused support, not tokenism.
+                    </p>
+                    <p>
+                        Today SPS works across Madhubani, Darbhanga and Supaul districts
+                        with partners including LEHER, Heifer International India, Just Rights
+                        for Children, Goonj, and several government schemes.
+                    </p>
+
+                    <div class="timeline">
+                        {{#get "posts" filter="tag:milestone" limit="1" as |milestones|}}
+                        {{#if milestones}}
+                            {{!-- Same single "milestone" post as the About page timeline.
+                                  Each bullet: bold the Year at the start, then the description. --}}
+                            <div class="timeline-rich">
+                                {{#foreach milestones}}{{content}}{{/foreach}}
+                            </div>
+                        {{else}}
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2004</div>
+                            <div class="timeline-text">Founded by a group of women; registered under Societies
+                                Registration Act 1860 (No.&nbsp;1247/03-04).</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2006&ndash;07</div>
+                            <div class="timeline-text">Obtained 12A and 80G registrations; first major child protection
+                                and health projects launched.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2010s</div>
+                            <div class="timeline-text">Expanded to livelihood programming with Heifer International; 185
+                                self-help groups formed.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">Present</div>
+                            <div class="timeline-text">Active projects with LEHER, Just Rights for Children and more,
+                                reaching 4,000+ families.</div>
+                        </div>
+                        {{/if}}
+                        {{/get}}
+                    </div>
+
+                    <p style="margin-top: 36px;">
+                        <a class="btn btn-primary" href="/about/" id="journey-cta">Read Our Full Story</a>
+                    </p>
+                </div>
+
+                <div class="journey-visual">
+                    {{#get "posts" filter="tag:milestone" limit="1" as |mimg|}}
+                    {{#if mimg}}
+                        {{#foreach mimg}}
+                            {{#if feature_image}}
+                                <img src="{{img_url feature_image size="l"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}Sarvo Prayas Sansthan community work{{/if}}" loading="lazy" style="width:100%; height:100%; min-height:400px; object-fit:cover; border-radius:var(--radius);">
+                            {{else}}
+                                <img src="{{asset "Images/gallery/photos/photo-03.webp"}}" alt="Sarvo Prayas Sansthan community work" loading="lazy" style="width:100%; height:100%; min-height:400px; object-fit:cover; border-radius:var(--radius);">
+                            {{/if}}
+                        {{/foreach}}
+                    {{else}}
+                        <img src="{{asset "Images/gallery/photos/photo-03.webp"}}" alt="Sarvo Prayas Sansthan community work" loading="lazy" style="width:100%; height:100%; min-height:400px; object-fit:cover; border-radius:var(--radius);">
+                    {{/if}}
+                    {{/get}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- ===== LATEST UPDATES (dynamic Ghost posts) ===== --}}
+    <section class="section section-bg-white" id="latest-updates">
+        <div class="container">
+            <header class="section-head">
+                <p class="section-eyebrow">From the field</p>
+                <h2 class="section-title">Latest Updates</h2>
+                <p class="section-lead">Stories, reports and news from our work across Northern Bihar.</p>
+            </header>
+
+            {{#get "posts" limit="3" include="tags,authors" filter="tag:-[partner,milestone,about-story,about-mission,about-vision,about-where,home-focus-child,home-focus-livelihood,hero-slider,stats]"}}
+            {{#if posts}}
+            <div class="cards-grid">
+                {{#foreach posts}}
+                {{> "post-card"}}
+                {{/foreach}}
+            </div>
+            {{else}}
+            <p class="empty-note">Updates from our work will appear here soon.</p>
+            {{/if}}
+            {{/get}}
+        </div>
+    </section>
+
+    {{!-- ===== PARTNERS MARQUEE ===== --}}
+    <section class="partners-section section-sm" id="partners" aria-label="Partner organisations">
+        <div class="container" style="margin-bottom: 32px;">
+            <header class="section-head">
+                <p class="section-eyebrow">In partnership with</p>
+                <h2 class="section-title">Our partners in development</h2>
+            </header>
+        </div>
+        <div class="partners-track-wrap" aria-label="Scrolling list of partner organisations">
+            {{#get "posts" filter="tag:partner" limit="1" as |partners|}}
+            {{#if partners}}
+            {{!-- Single post tagged "partner": list each partner name as a bullet in the post body.
+                  Content is output twice so the marquee loops seamlessly. --}}
+            <div class="partners-track partners-track--rich" aria-hidden="true">
+                {{#foreach partners}}{{content}}{{/foreach}}
+                {{#foreach partners}}{{content}}{{/foreach}}
+            </div>
+            {{else}}
+            <div class="partners-track" aria-hidden="true">
+                {{!-- Set 1 --}}
+                <span class="partner-chip">LEHER</span>
+                <span class="partner-chip">Heifer International India</span>
+                <span class="partner-chip">Just Rights for Children</span>
+                <span class="partner-chip">Goonj</span>
+                <span class="partner-chip">Miracle Foundation India</span>
+                <span class="partner-chip">Educate Girls</span>
+                <span class="partner-chip">CASA</span>
+                <span class="partner-chip">IGSSS</span>
+                <span class="partner-chip">Railway Children India</span>
+                <span class="partner-chip">Rotary India Literacy Mission</span>
+                <span class="partner-chip">HLFPPT</span>
+                <span class="partner-chip">CWS Hyderabad</span>
+                {{!-- Set 2 (seamless loop) --}}
+                <span class="partner-chip">LEHER</span>
+                <span class="partner-chip">Heifer International India</span>
+                <span class="partner-chip">Just Rights for Children</span>
+                <span class="partner-chip">Goonj</span>
+                <span class="partner-chip">Miracle Foundation India</span>
+                <span class="partner-chip">Educate Girls</span>
+                <span class="partner-chip">CASA</span>
+                <span class="partner-chip">IGSSS</span>
+                <span class="partner-chip">Railway Children India</span>
+                <span class="partner-chip">Rotary India Literacy Mission</span>
+                <span class="partner-chip">HLFPPT</span>
+                <span class="partner-chip">CWS Hyderabad</span>
+            </div>
+            {{/if}}
+            {{/get}}
+        </div>
+    </section>
+
+    {{!-- ===== CTA ===== --}}
+    <section class="section cta-section" id="home-cta">
+        <div class="container">
+            <div class="cta-inner">
+                <p class="section-eyebrow">Get involved</p>
+                <h2 class="cta-title">Partner with us on the next project.</h2>
+                <p class="cta-lead">
+                    Donors and partner organisations, explore our work and reach out to discuss how we can work
+                    together.
+                </p>
+                <div class="cta-actions">
+                    <a class="btn btn-outline-white" href="/contact/" id="cta-contact">Contact Us</a>
+                    <a class="btn btn-orange" href="/donate/" id="cta-donate">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,58 @@
+{{!< default}}
+
+{{#post}}
+<article class="post-full" itemscope itemtype="https://schema.org/Article">
+
+    <header class="post-full-header container-narrow">
+        {{#if primary_tag}}
+            <a class="post-full-tag" href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+        {{/if}}
+        <h1 class="post-full-title" itemprop="headline">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="post-full-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+        <div class="post-full-meta">
+            {{#primary_author}}
+                <span class="post-author" itemprop="author">By {{name}}</span>
+            {{/primary_author}}
+            <time datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">{{date format="DD MMM YYYY"}}</time>
+        </div>
+    </header>
+
+    {{#if feature_image}}
+        <figure class="post-full-image">
+            <img src="{{img_url feature_image size="xl"}}"
+                 alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                 itemprop="image"
+                 loading="lazy">
+            {{#if feature_image_caption}}
+                <figcaption>{{feature_image_caption}}</figcaption>
+            {{/if}}
+        </figure>
+    {{/if}}
+
+    <div class="post-full-content container-narrow" itemprop="articleBody">
+        {{content}}
+    </div>
+
+</article>
+{{/post}}
+
+{{!-- Related updates --}}
+{{#get "posts" limit="3" include="tags" filter="tag:-[partner,milestone,about-story,about-mission,about-vision,about-where,home-focus-child,home-focus-livelihood,hero-slider,stats]"}}
+    {{#if posts}}
+        <section class="section section-bg-cream" aria-label="More updates">
+            <div class="container">
+                <header class="section-head">
+                    <p class="section-eyebrow">Continue reading</p>
+                    <h2 class="section-title">More updates</h2>
+                </header>
+                <div class="cards-grid">
+                    {{#foreach posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            </div>
+        </section>
+    {{/if}}
+{{/get}}

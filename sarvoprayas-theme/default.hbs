@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{meta_title}}</title>
+
+    {{!-- Preconnect for Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {{!-- Montserrat (headings — bold, uppercase impact) + Open Sans (body — clean) --}}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    {{!-- Theme stylesheet --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+
+    {{ghost_head}}
+</head>
+
+<body class="{{body_class}}">
+    <a class="skip-link" href="#site-main">Skip to content</a>
+
+    <div class="site-wrapper">
+        {{> "site-header"}}
+
+        <main id="site-main" class="site-main">
+            {{{body}}}
+        </main>
+
+        {{> "site-footer"}}
+    </div>
+
+    <div id="google_translate_element" style="display:none;"></div>
+
+    {{!-- Google Website Translate: powers the EN / हिं toggle (English default) --}}
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,hi',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    {{!-- Theme scripts --}}
+    <script src="{{asset "js/main.js"}}"></script>
+
+    {{ghost_foot}}
+</body>
+</html>
