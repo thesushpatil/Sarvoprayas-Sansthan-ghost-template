@@ -1,4 +1,4 @@
-# Sarvo Prayas Sansthan — Ghost Theme v2.0
+# Sarvo Prayas Sansthan — Ghost Theme 
 
 A custom Ghost theme for **Sarvo Prayas Sansthan (SPS)**, Madhubani, Bihar, India.
 Fully responsive, accessible, GScan-validated. Built for donors and partners as the primary audience.
