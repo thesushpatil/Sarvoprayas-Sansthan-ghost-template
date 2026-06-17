@@ -1,0 +1,32 @@
+# Sarvo Prayas Sansthan - Ghost routing configuration
+#
+# This file uses Ghost's default routing. You do NOT need custom routes for the
+# section pages, because this theme uses the "page-{slug}.hbs" naming convention.
+#
+# How the custom section templates get used (no routing needed):
+#   1. In Ghost Admin, create a Page and set its URL slug to match the file name.
+#   2. Ghost automatically renders that page with the matching template.
+#
+#   Page slug            ->  Template file used
+#   ------------------------------------------------
+#   /donate/             ->  page-donate.hbs
+#   /contact/            ->  page-contact.hbs
+#   /gallery/            ->  page-gallery.hbs
+#   /events/             ->  page-events.hbs
+#   /ongoing-projects/   ->  page-ongoing-projects.hbs
+#   /past-projects/      ->  page-past-projects.hbs
+#   /about/              ->  page.hbs (Organization Journey)
+#
+# Tip: tag your posts with "gallery", "event", "ongoing-project", or
+# "past-project" so they automatically appear in the right section.
+
+routes:
+
+collections:
+  /:
+    permalink: /{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

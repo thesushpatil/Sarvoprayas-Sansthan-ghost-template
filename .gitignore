@@ -13,6 +13,10 @@
 !Docker/
 !Docker/**
 
+# Routes folder
+!Routes/
+!Routes/**
+
 # Images folder
 !Images/
 !Images/**
