@@ -6,7 +6,7 @@
         <div class="container page-hero-inner">
             <p class="section-eyebrow">Gallery</p>
             <h1 class="page-title">{{title}}</h1>
-            <p class="page-lead">Watch stories and reports from our work in the field. New videos are added on an ongoing basis.</p>
+            {{#if custom_excerpt}}<p class="page-lead">{{custom_excerpt}}</p>{{else}}<p class="page-lead empty-note">Description will be added soon.</p>{{/if}}
         </div>
     </header>
 
@@ -28,7 +28,7 @@
                                          alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                                          loading="lazy">
                                 {{else}}
-                                    <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
+                                    <span class="card-media card-media-empty" role="img" aria-label="No thumbnail"></span>
                                 {{/if}}
                                 <span class="video-play" aria-hidden="true">&#9654;</span>
                                 <span class="gallery-caption">{{title}}</span>
@@ -36,15 +36,7 @@
                         {{/foreach}}
                     </div>
                 {{else}}
-                    {{!-- Skeleton placeholders shown until real videos are uploaded --}}
-                    <div class="gallery-grid">
-                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
-                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
-                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
-                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
-                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
-                        <span class="placeholder gallery-placeholder" role="img" aria-label="Video placeholder">Video coming soon</span>
-                    </div>
+                    <p class="empty-note">No videos to display at the moment. Please check back soon.</p>
                 {{/if}}
             {{/get}}
 

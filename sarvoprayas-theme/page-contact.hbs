@@ -6,7 +6,7 @@
         <div class="container page-hero-inner">
             <p class="section-eyebrow">Contact</p>
             <h1 class="page-title">{{title}}</h1>
-            <p class="page-lead">Donors, partners and community members, we would love to hear from you.</p>
+            {{#if custom_excerpt}}<p class="page-lead">{{custom_excerpt}}</p>{{else}}<p class="page-lead empty-note">Description will be added soon.</p>{{/if}}
         </div>
     </header>
 
@@ -23,19 +23,14 @@
                     <div class="contact-info-item">
                         <p class="contact-info-label">Head Office</p>
                         <address>
-                            {{#if @custom.office_address_1}}{{@custom.office_address_1}}{{else}}Shankar Chowk, Ward No. 6,<br>
-                            PO + Dist, Madhubani,<br>
-                            Bihar, 847211, India{{/if}}
+                            {{@custom.office_address_1}}
                         </address>
                     </div>
 
                     <div class="contact-info-item">
                         <p class="contact-info-label">Branch Office</p>
                         <address>
-                            {{#if @custom.office_address_2}}{{@custom.office_address_2}}{{else}}Ward No. 09, Mohalla Tharesari,<br>
-                            Behind Meena Bazaar Chowk,<br>
-                            Near R.K. College Gate No. 2,<br>
-                            Madhubani, 847213, Bihar{{/if}}
+                            {{@custom.office_address_2}}
                         </address>
                     </div>
 

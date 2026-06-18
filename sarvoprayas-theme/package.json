@@ -34,6 +34,10 @@
         "type": "text",
         "default": "Protecting children and building rural livelihoods across Northern Bihar."
       },
+      "hero_lead": {
+        "type": "text",
+        "default": "Join Sarvo Prayas Sansthan in protecting children from abuse, marriage and trafficking, and building sustainable livelihoods for rural families across Madhubani, Darbhanga and Supaul."
+      },
       "brand_tagline": {
         "type": "text",
         "default": "Child Protection • Rural Livelihoods"
@@ -89,6 +93,10 @@
       "office_address_2": {
         "type": "text",
         "default": "Ward No. 09, Mohalla Tharesari, Behind Meena Bazaar Chowk, Near R.K. College Gate No. 2, Madhubani, 847213, Bihar"
+      },
+      "footer_tagline": {
+        "type": "text",
+        "default": "Making communities a better place to live in."
       }
     }
   }

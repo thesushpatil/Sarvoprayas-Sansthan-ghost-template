@@ -6,7 +6,7 @@
         <div class="container page-hero-inner">
             <p class="section-eyebrow">Events</p>
             <h1 class="page-title">{{title}}</h1>
-            <p class="page-lead">Seminars, community meetings and scheduled events. Check back for what&rsquo;s coming up.</p>
+            {{#if custom_excerpt}}<p class="page-lead">{{custom_excerpt}}</p>{{else}}<p class="page-lead empty-note">Description will be added soon.</p>{{/if}}
         </div>
     </header>
 

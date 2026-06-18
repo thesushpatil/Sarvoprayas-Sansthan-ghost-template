@@ -8,7 +8,7 @@
         <div class="container page-hero-inner">
             <p class="section-eyebrow">Our Journey</p>
             <h1 class="page-title">{{title}}</h1>
-            <p class="page-lead">From a small group of determined women in 2004 to a trusted voice for child protection and rural livelihoods across Northern Bihar.</p>
+            {{#if custom_excerpt}}<p class="page-lead">{{custom_excerpt}}</p>{{else}}<p class="page-lead empty-note">Description will be added soon.</p>{{/if}}
         </div>
     </header>
 
@@ -27,8 +27,6 @@
                     <div class="journey-visual">
                         {{#if feature_image}}
                             <img src="{{img_url feature_image size="l"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
-                        {{else}}
-                            <img src="{{asset "Images/gallery/photos/photo-01.webp"}}" alt="Sarvo Prayas Sansthan community work in Northern Bihar" loading="lazy">
                         {{/if}}
                     </div>
                 </div>
@@ -36,33 +34,8 @@
         </section>
         {{/foreach}}
     {{else}}
-    {{!-- Fallback when no "about-story" post exists --}}
     <section class="section section-bg-white">
-        <div class="container">
-            <div class="journey-grid">
-                <div class="journey-content">
-                    <p class="section-eyebrow">Background</p>
-                    <h2 class="section-title">Started by women, for the community.</h2>
-                    <p>
-                        Sarvo Prayas Sansthan (SPS) was started in 2004 by a self-motivated group of
-                        women to work in Northern Bihar, in the spirit of voluntarism and social
-                        development. SPS chose to operate in the Madhubani and Darbhanga districts,
-                        a complex, diverse and risk-prone region considered among the most backward in
-                        the country, popularly known as the flood-prone region of Bihar.
-                    </p>
-                    <p>
-                        This part of rural India had long remained neglected by the state and by
-                        mainstream development agencies. Even after decades of independence, scattered
-                        efforts had made little real difference to the quality of life and livelihoods
-                        of its people. SPS was born to take on exactly these challenges, working
-                        directly with the most marginalised communities.
-                    </p>
-                </div>
-                <div class="journey-visual">
-                    <img src="{{asset "Images/gallery/photos/photo-01.webp"}}" alt="Sarvo Prayas Sansthan community work in Northern Bihar" loading="lazy">
-                </div>
-            </div>
-        </div>
+        <div class="container"><p class="empty-note">Content coming soon.</p></div>
     </section>
     {{/if}}
     {{/get}}
@@ -78,22 +51,7 @@
                 </div>
             {{else}}
             <div class="stats-grid">
-                <div class="stat-cell">
-                    <span class="stat-number">2004</span>
-                    <span class="stat-label">Founded</span>
-                </div>
-                <div class="stat-cell">
-                    <span class="stat-number">75+</span>
-                    <span class="stat-label">Child Marriages Prevented</span>
-                </div>
-                <div class="stat-cell">
-                    <span class="stat-number">4,000+</span>
-                    <span class="stat-label">Families Reached</span>
-                </div>
-                <div class="stat-cell">
-                    <span class="stat-number">185</span>
-                    <span class="stat-label">Self-Help Groups</span>
-                </div>
+                <div class="stat-cell"><span class="stat-number">--</span><span class="stat-label">Coming soon</span></div>
             </div>
             {{/if}}
             {{/get}}
@@ -118,12 +76,7 @@
                             {{/foreach}}
                         {{else}}
                             <h3 class="card-title">Our Mission</h3>
-                            <p>
-                                To empower the poor, disadvantaged and marginalised, especially women
-                                and children, by protecting their rights, improving livelihood
-                                opportunities, and building a just and equal society where every person can
-                                live with dignity and security.
-                            </p>
+                            <p class="empty-note">Content coming soon.</p>
                         {{/if}}
                         {{/get}}
                     </div>
@@ -138,11 +91,7 @@
                             {{/foreach}}
                         {{else}}
                             <h3 class="card-title">Our Vision</h3>
-                            <p>
-                                We believe in community development through participatory approaches,
-                                making communities a better place to live in, where children are safe in
-                                school and families earn their livelihoods with confidence.
-                            </p>
+                            <p class="empty-note">Content coming soon.</p>
                         {{/if}}
                         {{/get}}
                     </div>
@@ -167,31 +116,7 @@
                         {{#foreach milestones}}{{content}}{{/foreach}}
                     </div>
                 {{else}}
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2004</div>
-                    <div class="timeline-text">Founded by a self-motivated group of women in Madhubani; registered under the Societies Registration Act, 1860.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2006&ndash;07</div>
-                    <div class="timeline-text">Obtained 12A and 80G registrations; launched first major child protection and health programmes with national partners.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2010s</div>
-                    <div class="timeline-text">Expanded into livelihood programming with Heifer International India; formed 185 self-help groups across Pandaul block.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2022 onwards</div>
-                    <div class="timeline-text">Through the Just Rights for Children network, prevented 75+ child marriages across Madhubani and Supaul districts.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">Today</div>
-                    <div class="timeline-text">Active across Madhubani, Darbhanga and Supaul, reaching 4,000+ families with partners including LEHER, Heifer, JRC and Goonj.</div>
-                </div>
+                <p class="empty-note">Content coming soon.</p>
                 {{/if}}
                 {{/get}}
             </div>
@@ -208,8 +133,6 @@
                     <div class="journey-visual">
                         {{#if feature_image}}
                             <img src="{{img_url feature_image size="l"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
-                        {{else}}
-                            <img src="{{asset "Images/gallery/photos/photo-05.webp"}}" alt="SPS work across Northern Bihar districts" loading="lazy">
                         {{/if}}
                     </div>
                     <div class="journey-content">
@@ -222,30 +145,9 @@
         </section>
         {{/foreach}}
     {{else}}
-    {{!-- Fallback when no "about-where" post exists --}}
+    {{!-- Empty state when no "about-where" post exists --}}
     <section class="section section-bg-white">
-        <div class="container">
-            <div class="journey-grid">
-                <div class="journey-visual">
-                    <img src="{{asset "Images/gallery/photos/photo-05.webp"}}" alt="SPS work across Northern Bihar districts" loading="lazy">
-                </div>
-                <div class="journey-content">
-                    <p class="section-eyebrow">Where we work</p>
-                    <h2 class="section-title">Rooted in Northern Bihar</h2>
-                    <p>
-                        Our work is concentrated in the flood-prone districts of <strong>Madhubani</strong>,
-                        <strong>Darbhanga</strong> and <strong>Supaul</strong>, some of the most
-                        underserved regions of rural India. We work block by block, village by village,
-                        building local committees and groups that can carry the work forward themselves.
-                    </p>
-                    <p>
-                        Our core strategy rests on three pillars: <strong>capacity building, coordination
-                        and convergence</strong>, identifying with the communities we serve, and
-                        helping those same communities identify with us.
-                    </p>
-                </div>
-            </div>
-        </div>
+        <div class="container"><p class="empty-note">Content coming soon.</p></div>
     </section>
     {{/if}}
     {{/get}}

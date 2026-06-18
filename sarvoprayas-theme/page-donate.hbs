@@ -6,11 +6,11 @@
         <div class="container page-hero-inner">
             <p class="section-eyebrow">Support Us</p>
             <h1 class="page-title">{{title}}</h1>
-            <p class="page-lead">
-                Your contribution supports child protection and rural livelihoods
-                across Madhubani, Darbhanga and Supaul. Donations are eligible
-                for tax exemption under 80G.
-            </p>
+            {{#if custom_excerpt}}
+                <p class="page-lead">{{custom_excerpt}}</p>
+            {{else}}
+                <p class="page-lead empty-note">Description will be added soon.</p>
+            {{/if}}
         </div>
     </header>
 
@@ -21,24 +21,34 @@
                 <div class="donate-intro">{{content}}</div>
             {{/if}}
 
-            {{!-- Bank account details (donors transfer directly; no QR code per requirement) --}}
+            {{!-- Bank account card — details from custom settings, text from a "donate-info" post --}}
             <div class="donate-grid donate-grid-single">
 
-                <section class="donate-card" aria-labelledby="donate-india-heading">
-                    <h2 id="donate-india-heading">For Indian Contributions</h2>
-                    <p class="donate-card-sub">Donate directly to our official bank account below.</p>
+                {{#get "posts" filter="tag:donate-info" limit="1" as |donatepost|}}
+                {{#if donatepost}}
+                    {{#foreach donatepost}}
+                    <section class="donate-card" aria-labelledby="donate-india-heading">
+                        <h2 id="donate-india-heading">{{title}}</h2>
+                        {{content}}
 
-                    <div class="bank-accounts bank-accounts-single">
-                        <dl class="bank-details">
-                            <p class="bank-bank-name">{{@custom.bank1_name}}</p>
-                            <div class="bank-row"><dt class="bank-label">Branch</dt><dd class="bank-value">{{@custom.bank1_branch}}</dd></div>
-                            <div class="bank-row"><dt class="bank-label">Account No.</dt><dd class="bank-value">{{@custom.bank1_account}}</dd></div>
-                            <div class="bank-row"><dt class="bank-label">IFSC</dt><dd class="bank-value">{{@custom.bank1_ifsc}}</dd></div>
-                        </dl>
-                    </div>
+                        <div class="bank-accounts bank-accounts-single">
+                            <dl class="bank-details">
+                                <p class="bank-bank-name">{{@custom.bank1_name}}</p>
+                                <div class="bank-row"><dt class="bank-label">Branch</dt><dd class="bank-value">{{@custom.bank1_branch}}</dd></div>
+                                <div class="bank-row"><dt class="bank-label">Account No.</dt><dd class="bank-value">{{@custom.bank1_account}}</dd></div>
+                                <div class="bank-row"><dt class="bank-label">IFSC</dt><dd class="bank-value">{{@custom.bank1_ifsc}}</dd></div>
+                            </dl>
+                        </div>
 
-                    <p class="donate-note">&#10003; 80G registered &middot; Eligible for 50% tax deduction</p>
-                </section>
+                        {{#if custom_excerpt}}
+                            <p class="donate-note">&#10003; {{custom_excerpt}}</p>
+                        {{/if}}
+                    </section>
+                    {{/foreach}}
+                {{else}}
+                    <p class="empty-note">Content coming soon.</p>
+                {{/if}}
+                {{/get}}
 
             </div>
 

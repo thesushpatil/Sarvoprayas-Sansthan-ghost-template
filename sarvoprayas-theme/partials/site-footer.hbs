@@ -13,29 +13,22 @@
 
             <div class="footer-col footer-links">
                 <h3 class="footer-heading">Explore</h3>
-                <ul>
-                    <li><a href="/about/">Organization Journey</a></li>
-                    <li><a href="/ongoing-projects/">Ongoing Projects</a></li>
-                    <li><a href="/past-projects/">Past Projects</a></li>
-                    <li><a href="/gallery/">Photos &amp; Videos</a></li>
-                    <li><a href="/events/">Upcoming Events</a></li>
+                <ul id="footer-explore">
+                    {{!-- JS will populate this from secondary nav, stripping parent prefixes --}}
                 </ul>
             </div>
 
             <div class="footer-col footer-links">
                 <h3 class="footer-heading">Get Involved</h3>
-                <ul>
-                    <li><a href="/donate/">Donate</a></li>
-                    <li><a href="/contact/">Contact Us</a></li>
+                <ul id="footer-involved">
+                    {{!-- JS will populate this with donate + contact links --}}
                 </ul>
             </div>
 
             <div class="footer-col footer-contact">
                 <h3 class="footer-heading">Reach Us</h3>
                 <address>
-                    {{#if @custom.office_address_1}}{{@custom.office_address_1}}{{else}}Shankar Chowk, Ward No. 6,<br>
-                    PO + Dist, Madhubani,<br>
-                    Bihar, 847211, India{{/if}}<br><br>
+                    {{@custom.office_address_1}}<br><br>
                     <a href="tel:{{@custom.contact_phone_1}}">{{@custom.contact_phone_1}}</a><br>
                     <a href="tel:{{@custom.contact_phone_2}}">{{@custom.contact_phone_2}}</a><br><br>
                     <a href="mailto:{{@custom.contact_email_1}}">{{@custom.contact_email_1}}</a>
@@ -48,7 +41,7 @@
     <div class="footer-bottom">
         <div class="container footer-bottom-inner">
             <span>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</span>
-            <span>Making communities a better place to live in.</span>
+            {{#if @custom.footer_tagline}}<span>{{@custom.footer_tagline}}</span>{{else}}<span class="empty-note">Tagline will be added soon.</span>{{/if}}
         </div>
     </div>
 </footer>

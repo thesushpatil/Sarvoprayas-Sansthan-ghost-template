@@ -48,8 +48,8 @@
     --c-accent: var(--c-red);
     --c-green: var(--c-orange);
 
-    --f-head: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-    --f-body: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    --f-head: var(--gh-font-heading, 'Montserrat'), 'Segoe UI', Arial, sans-serif;
+    --f-body: var(--gh-font-body, 'Open Sans'), 'Segoe UI', Arial, sans-serif;
 
     --container: 1220px;
     --container-narrow: 780px;
@@ -974,6 +974,14 @@ body {
     display: block;
 }
 
+/* Empty image state (no text, just subtle background) */
+.card-media-empty {
+    width: 100%;
+    aspect-ratio: 16/10;
+    display: block;
+    background: linear-gradient(135deg, var(--c-blue-bg) 0%, #d5e2f5 100%);
+}
+
 .card-media-wrap {
     display: block;
     overflow: hidden;
@@ -1147,24 +1155,6 @@ a.past-project-card:hover .past-project-arrow { transform: translateX(5px); colo
 }
 @media (max-width: 600px) {
     .past-projects-grid { grid-template-columns: 1fr; }
-}
-
-/* ===== PLACEHOLDER ===== */
-.placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-    background: linear-gradient(135deg, var(--c-blue-bg) 0%, #d5e2f5 100%);
-    color: var(--c-light);
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    min-height: 200px;
-    border: 2px dashed var(--c-border);
-    border-radius: var(--radius-sm);
 }
 
 /* ===== JOURNEY / TIMELINE ===== */
@@ -2630,11 +2620,13 @@ body {
         position: fixed;
         inset: auto 0 0 0;
         top: 74px;
+        display: flex;
         flex-direction: column;
         align-items: stretch;
+        justify-content: flex-start;
         gap: 0;
         background: var(--c-white);
-        padding: 18px 20px 28px;
+        padding: 12px 20px 24px;
         border-top: 3px solid var(--c-blue);
         box-shadow: 0 -4px 32px rgba(27, 63, 160, 0.12);
         transform: translateY(-110%);
@@ -2642,6 +2634,7 @@ body {
         max-height: calc(100vh - 74px);
         overflow-y: auto;
         z-index: 999;
+        flex: none;
     }
 
     .site-nav.is-open {
@@ -2652,7 +2645,12 @@ body {
         flex-direction: column;
         align-items: stretch;
         gap: 2px;
+        margin: 0;
+        padding: 0;
     }
+
+    /* Ensure the hidden secondary source takes no space */
+    #nav-secondary-src { display: none !important; }
 
     .nav-item {
         width: 100%;

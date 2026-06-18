@@ -6,7 +6,7 @@
         <div class="container page-hero-inner">
             <p class="section-eyebrow">Our Impact</p>
             <h1 class="page-title">{{title}}</h1>
-            <p class="page-lead">Programs we have successfully delivered with our partners over the years.</p>
+            {{#if custom_excerpt}}<p class="page-lead">{{custom_excerpt}}</p>{{else}}<p class="page-lead empty-note">Description will be added soon.</p>{{/if}}
         </div>
     </header>
 
@@ -29,14 +29,7 @@
                         {{/foreach}}
                     </div>
                 {{else}}
-                    <div class="past-projects-grid">
-                        <span class="past-project-card"><span class="past-project-name">Child Line India Foundation</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
-                        <span class="past-project-card"><span class="past-project-name">Livelihood Promotion: CWS</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
-                        <span class="past-project-card"><span class="past-project-name">Health Program: Mother &amp; Child</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
-                        <span class="past-project-card"><span class="past-project-name">Protection of Street &amp; Working Children</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
-                        <span class="past-project-card"><span class="past-project-name">SuPoshan: Nutrition</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
-                        <span class="past-project-card"><span class="past-project-name">Adult Literacy Program</span><span class="past-project-arrow" aria-hidden="true">&rarr;</span></span>
-                    </div>
+                    <p class="empty-note">No past projects to display at the moment. Please check back soon.</p>
                 {{/if}}
             {{/get}}
 

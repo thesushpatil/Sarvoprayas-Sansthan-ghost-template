@@ -66,6 +66,141 @@
     }
 
     /* ------------------------------------------------------------------
+       Dynamic Navigation Builder
+       Reads Ghost's primary nav (rendered in #nav-menu) + secondary nav
+       (rendered hidden in #nav-secondary-src).
+       Primary items with href containing "#" become dropdown parents.
+       Secondary items use "Parent: Child" label format to group under parents.
+    ------------------------------------------------------------------ */
+    (function buildDynamicNav() {
+        var navMenu = $('#nav-menu');
+        var secSrc = $('#nav-secondary-src');
+        if (!navMenu) return;
+
+        // Collect secondary items: { parentLabel: [{label, url}, ...] }
+        var subs = {};
+        if (secSrc) {
+            $$('li', secSrc).forEach(function (li) {
+                var rawLabel = li.getAttribute('data-nav-label') || li.textContent.trim();
+                var linkEl = $('a', li);
+                var url = linkEl ? linkEl.getAttribute('href') : '#';
+                var colonIdx = rawLabel.indexOf(':');
+                if (colonIdx === -1) {
+                    // No colon = standalone CTA button (e.g. "Donate")
+                    // Update the header donate button with this label and URL
+                    var donateBtn = $('#header-donate-btn');
+                    if (donateBtn) {
+                        donateBtn.textContent = rawLabel;
+                        donateBtn.href = url;
+                    }
+                    return;
+                }
+                var parent = rawLabel.substring(0, colonIdx).trim();
+                var child = rawLabel.substring(colonIdx + 1).trim();
+                if (!subs[parent]) subs[parent] = [];
+                subs[parent].push({ label: child, url: url });
+            });
+            secSrc.parentNode.removeChild(secSrc);
+        }
+
+        // Transform primary items with href containing "#" into dropdown parents
+        $$('.nav-item', navMenu).forEach(function (li) {
+            var link = $('a', li);
+            if (!link) return;
+            var label = (li.getAttribute('data-nav-label') || link.textContent).trim();
+            var href = link.getAttribute('href') || '';
+
+            // Dropdown marker: URL contains "#" as the fragment destination
+            var hashPos = href.indexOf('#');
+            var isDropdownMarker = (hashPos !== -1 && href.substring(hashPos) === '#');
+            if (isDropdownMarker && subs[label]) {
+                li.classList.add('has-dropdown');
+
+                // Replace the <a> with a <button> toggle
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'nav-dropdown-toggle';
+                btn.setAttribute('aria-expanded', 'false');
+                btn.setAttribute('aria-haspopup', 'true');
+                btn.innerHTML = label + ' <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                link.parentNode.replaceChild(btn, link);
+
+                // Build the dropdown <ul>
+                var dropdown = document.createElement('ul');
+                dropdown.className = 'nav-dropdown';
+                dropdown.setAttribute('role', 'list');
+                subs[label].forEach(function (item) {
+                    var subLi = document.createElement('li');
+                    var subA = document.createElement('a');
+                    subA.href = item.url;
+                    subA.textContent = item.label;
+                    subLi.appendChild(subA);
+                    dropdown.appendChild(subLi);
+                });
+                li.appendChild(dropdown);
+            }
+        });
+
+        // Move the "Donate" nav item into the header-actions slot as a styled button.
+        // Any primary nav item whose URL contains "/donate" gets extracted.
+        var donateSlot = $('#donate-btn-slot');
+        if (donateSlot) {
+            $$('.nav-item', navMenu).forEach(function (li) {
+                var link = $('a', li);
+                if (!link) return;
+                var href = link.getAttribute('href') || '';
+                if (href.indexOf('/donate') !== -1) {
+                    // Create styled donate button
+                    var donateBtn = document.createElement('a');
+                    donateBtn.className = 'btn btn-accent header-donate';
+                    donateBtn.href = href;
+                    donateBtn.id = 'header-donate-btn';
+                    donateBtn.textContent = link.textContent.trim();
+                    donateSlot.parentNode.replaceChild(donateBtn, donateSlot);
+                    // Remove from the nav list
+                    li.parentNode.removeChild(li);
+                }
+            });
+        }
+
+        // Build footer link columns from the same parsed secondary nav data.
+        // "Explore" gets project/gallery/event links (stripped of parent prefix).
+        // "Get Involved" gets about/contact/donate links.
+        var footerExplore = $('#footer-explore');
+        var footerInvolved = $('#footer-involved');
+        if (footerExplore && footerInvolved) {
+            var involvedKeys = ['about', 'contact', 'donate'];
+            // Flatten all sub-items from the subs object
+            Object.keys(subs).forEach(function (parent) {
+                subs[parent].forEach(function (item) {
+                    var li = document.createElement('li');
+                    var a = document.createElement('a');
+                    a.href = item.url;
+                    a.textContent = item.label;
+                    li.appendChild(a);
+                    // Decide which column: if URL contains about/contact/donate → Get Involved
+                    var isInvolved = involvedKeys.some(function (k) { return item.url.indexOf('/' + k) !== -1; });
+                    if (isInvolved) {
+                        footerInvolved.appendChild(li);
+                    } else {
+                        footerExplore.appendChild(li);
+                    }
+                });
+            });
+            // Also add Donate to Get Involved if it was a primary nav item
+            var donateBtn = $('#header-donate-btn');
+            if (donateBtn && footerInvolved) {
+                var donateLi = document.createElement('li');
+                var donateA = document.createElement('a');
+                donateA.href = donateBtn.href;
+                donateA.textContent = donateBtn.textContent;
+                donateLi.appendChild(donateA);
+                footerInvolved.appendChild(donateLi);
+            }
+        }
+    })();
+
+    /* ------------------------------------------------------------------
        Dropdown menus (Program, Gallery, Get Involved)
        - Desktop: CSS opens them on hover.
        - Click/keyboard: toggles .is-open (works on touch + accessibility).

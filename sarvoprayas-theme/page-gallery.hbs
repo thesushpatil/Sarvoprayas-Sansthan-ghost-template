@@ -6,7 +6,7 @@
         <div class="container page-hero-inner">
             <p class="section-eyebrow">Gallery</p>
             <h1 class="page-title">{{title}}</h1>
-            <p class="page-lead">A look at our work in the field across Madhubani, Darbhanga and Supaul.</p>
+            {{#if custom_excerpt}}<p class="page-lead">{{custom_excerpt}}</p>{{else}}<p class="page-lead empty-note">Description will be added soon.</p>{{/if}}
         </div>
     </header>
 
@@ -28,43 +28,14 @@
                                          alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                                          loading="lazy">
                                 {{else}}
-                                    <span class="placeholder gallery-placeholder" role="img" aria-label="Image placeholder">Image coming soon</span>
+                                    <span class="card-media card-media-empty" role="img" aria-label="No image"></span>
                                 {{/if}}
                                 <span class="gallery-caption">{{title}}</span>
                             </a>
                         {{/foreach}}
                     </div>
                 {{else}}
-                    {{!-- Bundled gallery images (theme assets/Images/gallery/) --}}
-                    <div class="gallery-grid">
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-01.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-02.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-03.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-04.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-05.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-06.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-07.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-08.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-09.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/photos/photo-10.webp"}}" alt="SPS field activity" loading="lazy"></figure>
-                    </div>
-
-                    <header class="section-head" style="margin: 64px 0 28px;">
-                        <p class="section-eyebrow">In the news</p>
-                        <h2 class="section-title">Press &amp; coverage</h2>
-                    </header>
-                    <div class="gallery-grid">
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-01.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-02.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-03.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-04.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-05.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-06.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-07.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-08.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-09.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                        <figure class="gallery-item"><img src="{{asset "Images/gallery/news/news-10.webp"}}" alt="SPS in the news" loading="lazy"></figure>
-                    </div>
+                    <p class="empty-note">No photos to display at the moment. Please check back soon.</p>
                 {{/if}}
             {{/get}}
 
