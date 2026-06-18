@@ -1,16 +1,16 @@
 # Sarvo Prayas Sansthan — Ghost Theme v2.0
 
-A custom Ghost theme for **Sarvo Prayas Sansthan (SPS)**, Madhubani, Bihar, India.
-Fully responsive, accessible, GScan-validated. Built for donors and partners as the primary audience.
+Custom Ghost theme for **Sarvo Prayas Sansthan (SPS)**, Madhubani, Bihar, India.
+Fully responsive, accessible, GScan-validated (zero errors, zero warnings). Built for donors and partners as the primary audience.
 
 ---
 
 ## Design
 
-- **Palette**: Blue Primary `#1B3FA0` · Blue Dark `#101D4F` · Red `#D42B31` · Orange `#F07820` · Page BG `#F4F6FC`.
-- **Fonts**: Montserrat (headings, nav, buttons) + Open Sans (body), loaded from Google Fonts.
-- **Features**: Sticky header with dropdown menus · Full-screen hero with rotating image slider · Animated stat counters · Scroll-in-view reveals · Partner marquee strip · Timeline · Dark footer · EN/Hindi language toggle.
-- **Responsive**: Hamburger menu at 980px · Fully tested on mobile, tablet, laptop and desktop.
+- **Palette**: Blue `#1B3FA0` · Dark `#101D4F` · Red `#D42B31` · Orange `#F07820` · Page BG `#F4F6FC`
+- **Fonts**: Montserrat (headings, nav) + Open Sans (body), Google Fonts
+- **Features**: Dynamic navigation with dropdowns · Hero image slider · Animated stat counters · Client-side pagination · Partner marquee · Timeline · EN/Hindi toggle · Scroll reveals
+- **Responsive**: Hamburger at 980px · Tested on mobile, tablet, laptop, desktop
 
 ---
 
@@ -18,110 +18,127 @@ Fully responsive, accessible, GScan-validated. Built for donors and partners as 
 
 | Template | Slug | Purpose |
 |---|---|---|
-| `index.hbs` | `/` | Homepage (hero, stats, focus cards, journey, updates, partners, CTA) |
-| `page-about.hbs` | `about` | Organisation Journey (story, stats, mission/vision, timeline, where we work) |
-| `page-ongoing-projects.hbs` | `ongoing-projects` | Ongoing project cards with images |
-| `page-past-projects.hbs` | `past-projects` | Past project name-only cards (no images) |
-| `page-gallery.hbs` | `gallery` | Photo grid from tagged posts |
-| `page-videos.hbs` | `videos` | Video grid from tagged posts |
-| `page-events.hbs` | `events` | Events list with date blocks |
+| `index.hbs` | `/` | Homepage |
+| `page-about.hbs` | `about` | Organisation Journey |
+| `page-ongoing-projects.hbs` | `ongoing-projects` | Ongoing projects (6/page) |
+| `page-past-projects.hbs` | `past-projects` | Past projects, title-only cards (9/page) |
+| `page-gallery.hbs` | `gallery` | Photo grid (6/page) |
+| `page-videos.hbs` | `videos` | Video grid (6/page) |
+| `page-events.hbs` | `events` | Events list (6/page) |
 | `page-contact.hbs` | `contact` | Contact info + form |
-| `page-donate.hbs` | `donate` | Bank account details (single bank) |
-| `post.hbs` | — | Single post view |
+| `page-donate.hbs` | `donate` | Bank details |
+| `post.hbs` | — | Single post |
 | `page.hbs` | — | Generic page |
-| `tag.hbs` | — | Tag archive |
-| `author.hbs` | — | Author archive |
-| `error.hbs` | — | Error page |
+| `tag.hbs` / `author.hbs` / `error.hbs` | — | System pages |
 
 ---
 
 ## Dynamic Content via Tags
 
-Almost all site content is editable from Ghost Admin using tagged posts. One post per tag; edit the existing post to update.
+All site content is editable from Ghost Admin using tagged posts.
 
-| Tag | Where it shows | What to put in the post |
-|---|---|---|
-| `ongoing-project` | Ongoing Projects page | Title, description, feature image |
-| `past-project` | Past Projects page | Title only (no image needed) |
-| `gallery` | Photos page | Title (caption), feature image |
-| `video` | Videos page | Title, feature image, YouTube link in body |
-| `event` | Events page | Title, description, publish date = event date |
-| `partner` | Partner marquee (home) | Bulleted list of partner names in body |
-| `milestone` | Timeline (home + about) | Bulleted list: bold year then description. Feature image shows beside the timeline on home only |
-| `stats` | Impact stats band (home + about) | Bulleted list: bold number then label |
-| `hero-slider` | Hero background (home) | Add multiple images in body — they rotate every 5 seconds |
-| `home-focus-child` | Child Protection card (home) | Title, short text, feature image |
-| `home-focus-livelihood` | Livelihood card (home) | Title, short text, feature image |
-| `about-story` | Background story (about) | Title = heading, body = paragraphs, feature image |
-| `about-mission` | Mission card (about) | Title, short text |
-| `about-vision` | Vision card (about) | Title, short text |
-| `about-where` | Where We Work (about) | Title = heading, body = paragraphs, feature image |
+| Tag | Shows on | What to add | One post? |
+|---|---|---|---|
+| `ongoing-project` | Ongoing Projects page | Title, description, feature image | Multiple |
+| `past-project` | Past Projects page | Title only | Multiple |
+| `gallery` | Photos page | Title, feature image | Multiple |
+| `video` | Videos page | Title, feature image, YouTube link | Multiple |
+| `event` | Events page | Title, description, publish date = event date | Multiple |
+| `partner` | Partner marquee (home) | Bulleted list in body | One |
+| `stats` | Stats band (home + about) | Bulleted list: bold number + label | One |
+| `milestone` | Timeline (home + about) | Bulleted list: bold year + description. Feature image for home | One |
+| `hero-slider` | Hero background (home) | Multiple images in body, rotate every 5s | One |
+| `home-focus-intro` | Focus heading (home) | Title + excerpt | One |
+| `home-focus-child` | Child Protection card (home) | Title, text, feature image | One |
+| `home-focus-livelihood` | Livelihood card (home) | Title, text, feature image | One |
+| `home-story` | Our Story section (home) | Title, paragraphs | One |
+| `about-story` | Story block (about) | Title, paragraphs, feature image | One |
+| `about-mission` | Mission card (about) | Title, text | One |
+| `about-vision` | Vision card (about) | Title, text | One |
+| `about-where` | Where We Work (about) | Title, paragraphs, feature image | One |
+| `donate-info` | Donate card | Title, text, excerpt for note | One |
 
-Posts tagged with the helper tags above are automatically excluded from "Latest Updates" and "More updates" feeds.
+Helper-tagged posts are automatically excluded from Latest Updates and More Updates feeds.
 
 ---
 
-## Custom Settings (Theme Settings in Ghost Admin)
+## Dynamic Navigation
 
-Editable in Settings → Design & branding → Customize → Sitewide. Currently 15 fields (Ghost limit is 20).
+The header and footer menus are managed from **Settings → Navigation** in Ghost Admin.
+
+**Primary Navigation**: top-level items. Items with URL `#` become dropdown parents. The item with URL containing `/donate` becomes the red Donate button.
+
+**Secondary Navigation**: dropdown sub-items using format `ParentLabel: ChildLabel`. Footer links are also generated from secondary nav automatically.
+
+---
+
+## Custom Settings (17/20)
+
+Editable in Settings → Design & branding → Customize → Sitewide:
 
 | Field | Purpose |
 |---|---|
-| `hero_title` | Main headline on the home page |
-| `brand_tagline` | Small tagline under the logo |
-| `contact_phone_1` / `contact_phone_2` | Phone numbers (footer + contact page) |
-| `contact_email_1` | Email address (contact page) |
-| `office_address_1` / `office_address_2` | Head office and branch office addresses |
-| `reg_society_number` / `reg_12a_number` / `reg_80g_number` / `pan_number` | Legal registration numbers |
-| `bank1_name` / `bank1_branch` / `bank1_account` / `bank1_ifsc` | Bank details on the Donate page |
+| `hero_title` | Homepage headline |
+| `hero_lead` | Homepage subtitle paragraph |
+| `brand_tagline` | Tagline under logo |
+| `contact_phone_1` / `contact_phone_2` | Phone numbers |
+| `contact_email_1` | Email address |
+| `office_address_1` / `office_address_2` | Office addresses |
+| `reg_society_number` / `reg_12a_number` / `reg_80g_number` / `pan_number` | Legal numbers |
+| `bank1_name` / `bank1_branch` / `bank1_account` / `bank1_ifsc` | Bank details |
+| `footer_tagline` | Footer bottom text |
+
+---
+
+## Page Excerpts
+
+Each page's description (shown below the title) is set via the page's **Excerpt** field in Ghost Admin (⚙ → Excerpt). No hardcoded page leads exist.
 
 ---
 
 ## Pagination
 
-Pages with `data-paginate="6"` (or `"9"` for past projects) automatically show page numbers at the bottom when content exceeds the limit. This is client-side JS — no server config needed.
+Client-side pagination with `data-paginate` attribute. Shows page numbers at the bottom automatically when content exceeds the limit. No server config needed.
 
 ---
 
-## Language Toggle (English / Hindi)
+## Language Toggle
 
-- Header shows **EN / हिं** buttons. English is the default.
-- Hindi translation is powered by Google Website Translate.
-- The toggle uses `notranslate` class to keep button labels fixed.
-- Cookie is cleared across all domain scopes (including `.ghost.io` subdomains) when reverting to English.
+EN/Hindi buttons in header. Powered by Google Website Translate. Toggle buttons are marked `notranslate` so they stay fixed. Cookie clearing handles ghost.io subdomains.
 
 ---
 
-## Quick Start — Docker (development)
+## Quick Start (Docker)
 
 ```bash
-cd d:\oasis\SarvoPrayas
+cd Docker
 docker compose up -d
-# Open http://localhost:2368/ghost for setup
-# Theme folder is volume-mounted — edits are live after theme reactivation
+# Open http://localhost:2368/ghost
 ```
 
 ---
 
-## Deploy to Production
+## Deploy
 
-1. Zip the `sarvoprayas-theme` folder.
-2. Ghost Admin → Settings → Design → Change theme → Upload → Activate.
-3. Create the 8 required Pages with exact slugs (see Templates table above).
-4. Set site title, description, and logo in Settings → General.
-5. Fill theme custom settings in Settings → Design & branding → Customize.
-6. Create the tagged posts (see Dynamic Content table).
-7. Hard-refresh the site (Ctrl+Shift+R) to see changes.
+1. Zip the `sarvoprayas-theme` folder
+2. Ghost Admin → Settings → Design → Change theme → Upload → Activate
+3. Create the 8 required Pages with exact slugs
+4. Set up Navigation (Primary + Secondary)
+5. Fill theme custom settings
+6. Create the tagged posts
+7. Set page excerpts
+8. Hard-refresh (Ctrl+Shift+R)
 
 ---
 
-## GScan Validation
+## GScan
 
-```powershell
-npx gscan@latest .\sarvoprayas-theme
+```
+npx gscan@latest ./sarvoprayas-theme
+✓ Your theme is compatible with Ghost 6.x
 ```
 
-Current status: **0 errors · 1 warning** (optional custom fonts support — safe to ignore for a brand-consistent site).
+Zero errors. Zero warnings.
 
 ---
 
@@ -130,19 +147,19 @@ Current status: **0 errors · 1 warning** (optional custom fonts support — saf
 ```
 sarvoprayas-theme/
 ├── assets/
-│   ├── css/screen.css       — All styles (single file, responsive)
-│   ├── js/main.js           — Navigation, language toggle, hero slider, pagination, stat counters, scroll reveals
-│   └── Images/              — Bundled fallback images (used until real posts replace them)
+│   ├── css/screen.css
+│   ├── js/main.js
+│   └── Images/ (empty — all images are dynamic via Ghost)
 ├── partials/
-│   ├── site-header.hbs      — Header with nav dropdowns
-│   ├── site-footer.hbs      — Footer with contact details
-│   ├── post-card.hbs        — Reusable post card
+│   ├── site-header.hbs (dynamic nav)
+│   ├── site-footer.hbs (dynamic links)
+│   ├── navigation.hbs
+│   ├── post-card.hbs
 │   ├── project-placeholder.hbs
-│   ├── pagination.hbs
-│   └── navigation.hbs
-├── default.hbs              — Base layout
-├── index.hbs                — Homepage
-├── page-about.hbs           — About page
+│   └── pagination.hbs
+├── default.hbs
+├── index.hbs
+├── page-about.hbs
 ├── page-ongoing-projects.hbs
 ├── page-past-projects.hbs
 ├── page-gallery.hbs
@@ -150,11 +167,9 @@ sarvoprayas-theme/
 ├── page-events.hbs
 ├── page-contact.hbs
 ├── page-donate.hbs
-├── page.hbs                 — Generic page
-├── post.hbs                 — Single post
-├── tag.hbs / author.hbs / error.hbs
-├── package.json             — Theme config + custom settings
-├── routes.yaml              — Ghost routing (default routing)
+├── page.hbs / post.hbs / tag.hbs / author.hbs / error.hbs
+├── package.json
+├── routes.yaml
 └── README.md
 ```
 
@@ -162,7 +177,7 @@ sarvoprayas-theme/
 
 ## Notes
 
-- The contact form is currently a visual placeholder — wire it to a real form handler (Formspree, Web3Forms, etc.) before launch.
-- Fallback/placeholder content shows until real tagged posts are published, then disappears automatically.
-- All images should be uploaded in **WebP format** for best performance.
-- The theme is built for Ghost 5+.
+- Contact form is a visual placeholder — wire to Formspree/Web3Forms before launch
+- No bundled images — all visuals come from Ghost posts/settings
+- Theme requires Ghost 5+
+- All content shows "Coming soon" empty states until populated via Ghost Admin

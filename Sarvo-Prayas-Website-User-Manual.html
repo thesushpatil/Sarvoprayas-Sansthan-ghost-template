@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sarvo Prayas Sansthan – Ghost User Manual</title>
+<style>
+body{font-family:'Calibri','Segoe UI',Arial,sans-serif;color:#222;line-height:1.5;max-width:800px;margin:24px auto;padding:0 16px}
+h1{font-size:22pt;color:#1B3FA0}
+h2{font-size:15pt;color:#1B3FA0;margin-top:26px}
+h3{font-size:12.5pt;color:#101D4F;margin-top:16px}
+code{background:#F0F3FA;padding:1px 5px;border-radius:3px;font-family:'Consolas',monospace;font-size:10.5pt;color:#A81B21}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th,td{border:1px solid #C8D4EE;padding:7px 10px;text-align:left;font-size:11pt}
+th{background:#EBF1FB;color:#101D4F}
+ul li,ol li{margin-bottom:4px}
+.imp{color:#A81B21;font-weight:bold}
+.imgph{border:2px dashed #B9C5E0;background:#F4F6FC;color:#8795B0;text-align:center;padding:26px 14px;margin:12px 0;font-size:10.5pt;font-style:italic;border-radius:6px}
+</style>
+</head>
+<body>
+
+<h1>Sarvo Prayas Sansthan – Ghost Manual</h1>
+
+<h2>1. How to Login to Ghost Admin</h2>
+<ul>
+<li>Open your browser and go to <code>yourdomain.com/ghost</code></li>
+<li>Enter the login credentials (Email and Password)</li>
+<li>Admin Dashboard will appear</li>
+</ul>
+<div class="imgph">[ Screenshot: Ghost login screen ]</div>
+
+<h2>2. How to Add / Edit a Post</h2>
+
+<h3>a. Create New Post</h3>
+<ul>
+<li>Click on "Posts" in the left sidebar</li>
+<li>Click the New Post button (top right)</li>
+<li>Write the Title: Click the large text at the top and type your headline</li>
+<li>Write the Content: Click below the title and type your text</li>
+<li>Tip: Press the + icon on a blank line to insert images, videos, dividers, or quotes</li>
+<li>Add a Feature Image: Click "Add feature image" at the top of the post to upload the main photo</li>
+<li>When done, click Publish (top right)</li>
+</ul>
+<p><span class="imp">Important:</span> Always add a Tag before publishing from the sidebar settings.</p>
+<p><span class="imp">Important:</span> Only upload images in WebP format. Do not upload JPG or PNG files.</p>
+<div class="imgph">[ Screenshot: New Post editor ]</div>
+
+<h3>b. How to Edit an Existing Post</h3>
+<ul>
+<li>Click Posts in the left sidebar</li>
+<li>Find the post you want to edit</li>
+<li>Click on it to open</li>
+<li>Make your changes</li>
+<li>Click Update (top right) to save</li>
+</ul>
+
+<h2>3. How to Add a New Ongoing or Past Project</h2>
+<ul>
+<li>Click Posts in the left sidebar</li>
+<li>Click New Post</li>
+<li>Write the project name as the Title</li>
+<li>For an ongoing project: write the full description as the content and add a feature image (WebP format)</li>
+<li>For a past project: only the project name (Title) is needed. Past projects show as clean name-only cards, no image or description required</li>
+<li>Click the sidebar settings icon</li>
+<li>Scroll down to Tags and add: <code>ongoing-project</code> for a current project, or <code>past-project</code> for a completed one</li>
+<li>Click Publish</li>
+</ul>
+<p>The project will automatically appear on the correct page. Ongoing Projects shows 6 per page and Past Projects shows 9 per page. Page numbers appear at the bottom automatically when there are more.</p>
+<div class="imgph">[ Screenshot: Projects page ]</div>
+
+<h2>4. How to Add a Photo to the Gallery</h2>
+<ul>
+<li>Click Posts in the left sidebar</li>
+<li>Click New Post</li>
+<li>Write a short caption as the Title</li>
+<li>Add a feature image (the photo in WebP format)</li>
+<li>Add Tag: <code>gallery</code></li>
+<li>Click Publish</li>
+</ul>
+<p>The photo will appear on the Photos page. Shows 6 per page.</p>
+
+<h2>5. How to Add a Video</h2>
+<ul>
+<li>Click Posts in the left sidebar</li>
+<li>Click New Post</li>
+<li>Write the video name as the Title</li>
+<li>In the content, paste the YouTube link on its own line (it turns into a player)</li>
+<li>Add a feature image (a thumbnail picture in WebP format)</li>
+<li>Add Tag: <code>video</code></li>
+<li>Click Publish</li>
+</ul>
+
+<h2>6. How to Add an Event</h2>
+<ul>
+<li>Click Posts in the left sidebar</li>
+<li>Click New Post</li>
+<li>Write the event name as the Title</li>
+<li>Write the event details as the content</li>
+<li>The Publish Date you set becomes the event date shown on the page, so set it carefully in the sidebar settings</li>
+<li>Add Tag: <code>event</code></li>
+<li>Click Publish</li>
+</ul>
+
+<h2>7. How to Edit the Homepage (Section by Section)</h2>
+
+<h3>a. The Hero Slider (Top Background Images)</h3>
+<ul>
+<li>Create ONE post and tag it <code>hero-slider</code></li>
+<li>Title: Anything you like (not shown on the site)</li>
+<li>In the content, add several images one after another. These become the rotating full-screen backgrounds</li>
+<li>The images rotate automatically, one every 5 seconds</li>
+</ul>
+
+<h3>b. The Two Focus Cards (Child Protection and Livelihood)</h3>
+<ul>
+<li>For the Child Protection card: create a post, write the title and short text, add a feature image, and tag it <code>home-focus-child</code></li>
+<li>For the Livelihood card: create a post, write the title and short text, add a feature image, and tag it <code>home-focus-livelihood</code></li>
+<li>Use only one post for each tag</li>
+</ul>
+
+<h3>c. The Focus Section Heading</h3>
+<ul>
+<li>Create ONE post and tag it <code>home-focus-intro</code></li>
+<li>Title: becomes the heading (e.g. "Two causes. One community.")</li>
+<li>In the sidebar settings, add an Excerpt: becomes the subtitle paragraph</li>
+</ul>
+
+<h3>d. The "Our Story" Section</h3>
+<ul>
+<li>Create ONE post and tag it <code>home-story</code></li>
+<li>Title: becomes the heading</li>
+<li>Body: type the story paragraphs</li>
+</ul>
+
+<h3>e. The Impact Stats (Numbers Band)</h3>
+<ul>
+<li>Create ONE post and tag it <code>stats</code></li>
+<li>In the content, add a bulleted list. For each stat, bold the number first, then a space, then the label</li>
+<li>Example: <strong>22+</strong> Years of Service</li>
+<li>To make the number bold, select it and press Ctrl+B</li>
+<li>This same stats band shows on both the Home page and the About page</li>
+<li>To update a number later, just open this post, change the number, and click Update</li>
+</ul>
+
+<h3>f. The Timeline (Milestones)</h3>
+<ul>
+<li>Create ONE post and tag it <code>milestone</code></li>
+<li>In the content, add a bulleted list. Bold the year first, then the description</li>
+<li>Example: <strong>2004</strong> Founded by a group of women in Madhubani</li>
+<li>Add a Feature Image: this photo shows beside the timeline on the homepage only (not on About)</li>
+<li>This same timeline shows on both Home and About pages</li>
+</ul>
+
+<h3>g. The Partner Strip</h3>
+<ul>
+<li>Create ONE post and tag it <code>partner</code></li>
+<li>In the content, list each partner name as a bullet</li>
+<li>The names scroll across the home page automatically</li>
+</ul>
+
+<h2>8. How to Edit the About Page</h2>
+<p>Each block on the About page is controlled by its own post. Create one post for each, with the tag shown below.</p>
+<table>
+<tr><th>About page block</th><th>Tag to use</th><th>What to add</th></tr>
+<tr><td>Background / Story</td><td><code>about-story</code></td><td>Title, paragraphs, feature image</td></tr>
+<tr><td>Our Mission card</td><td><code>about-mission</code></td><td>Title, short text</td></tr>
+<tr><td>Our Vision card</td><td><code>about-vision</code></td><td>Title, short text</td></tr>
+<tr><td>Where We Work</td><td><code>about-where</code></td><td>Title, paragraphs, feature image</td></tr>
+</table>
+<p>The post title becomes the heading and the content becomes the text. Use only one post per tag.</p>
+
+<h2>9. How to Edit the Donate Page</h2>
+<ul>
+<li>Create ONE post and tag it <code>donate-info</code></li>
+<li>Title: becomes the card heading (e.g. "For Indian Contributions")</li>
+<li>Body: any intro text shown above the bank details (e.g. "Donate directly to our official bank account below.")</li>
+<li>Excerpt (in sidebar settings): becomes the note below the bank details (e.g. "80G registered. Eligible for 50% tax deduction")</li>
+</ul>
+<p>The bank account numbers themselves are set in Settings (see section 11 below).</p>
+
+<h2>10. How to Manage Pages</h2>
+<p>Pages are used for: About, Contact, Donate, and the section pages.</p>
+<ul>
+<li>Click Pages in the left sidebar</li>
+<li>Click on the page you want to edit</li>
+<li>Make your changes</li>
+<li>Click Update to save</li>
+</ul>
+<p><span class="imp">Important:</span> Each page has an Excerpt field (in sidebar settings). This is the description text shown below the page title on the website. Set it for each page.</p>
+<p><span class="imp">Note:</span> Do not change the page URL (slug). The slugs must stay exactly as below.</p>
+<table>
+<tr><th>Page</th><th>Slug (URL)</th><th>Excerpt to set</th></tr>
+<tr><td>Organization Journey</td><td><code>about</code></td><td>From a small group of determined women in 2004 to a trusted voice for child protection and rural livelihoods across Northern Bihar.</td></tr>
+<tr><td>Ongoing Projects</td><td><code>ongoing-projects</code></td><td>The projects we are actively running today across Madhubani, Darbhanga and Supaul.</td></tr>
+<tr><td>Past Projects</td><td><code>past-projects</code></td><td>Programs we have successfully delivered with our partners over the years.</td></tr>
+<tr><td>Photos</td><td><code>gallery</code></td><td>A look at our work in the field across Madhubani, Darbhanga and Supaul.</td></tr>
+<tr><td>Videos</td><td><code>videos</code></td><td>Watch stories and reports from our work in the field. New videos are added on an ongoing basis.</td></tr>
+<tr><td>Events</td><td><code>events</code></td><td>Seminars, community meetings and scheduled events. Check back for what's coming up.</td></tr>
+<tr><td>Contact Us</td><td><code>contact</code></td><td>Donors, partners and community members, we would love to hear from you.</td></tr>
+<tr><td>Donate</td><td><code>donate</code></td><td>Your contribution supports child protection and rural livelihoods across Madhubani, Darbhanga and Supaul. Donations are eligible for tax exemption under 80G.</td></tr>
+</table>
+
+<h2>11. How to Update Contact, Bank and Legal Details</h2>
+<p>This information appears in many places, so it is set in one place. Change it once and it updates everywhere.</p>
+<ul>
+<li>In the sidebar click Settings, then Design and branding</li>
+<li>Click Customize, then open the theme settings (Sitewide)</li>
+<li>Update any of the fields below, then click Save</li>
+</ul>
+<table>
+<tr><th>Field</th><th>Controls</th></tr>
+<tr><td>Hero title</td><td>The big headline on the home page</td></tr>
+<tr><td>Hero lead</td><td>The paragraph below the headline on the home page</td></tr>
+<tr><td>Brand tagline</td><td>The small line under the logo</td></tr>
+<tr><td>Contact phone 1 / 2</td><td>Phone numbers in footer and contact page</td></tr>
+<tr><td>Contact email</td><td>Email address shown on the contact page</td></tr>
+<tr><td>Office address 1 / 2</td><td>Head office and branch office addresses</td></tr>
+<tr><td>Society / 12A / 80G / PAN</td><td>Legal registration numbers</td></tr>
+<tr><td>Bank name / branch / account / IFSC</td><td>Account details on the Donate page</td></tr>
+<tr><td>Footer tagline</td><td>The small text at the bottom of the website</td></tr>
+</table>
+
+<h2>12. How to Set Up Navigation (Header Menu)</h2>
+<p>The website menu is managed from Ghost Admin. Go to Settings, then Navigation.</p>
+
+<h3>Primary Navigation (top-level items):</h3>
+<table>
+<tr><th>Label</th><th>URL</th></tr>
+<tr><td>Home</td><td><code>/</code></td></tr>
+<tr><td>Program</td><td><code>#</code></td></tr>
+<tr><td>Gallery</td><td><code>#</code></td></tr>
+<tr><td>Events</td><td><code>/events/</code></td></tr>
+<tr><td>Get Involved</td><td><code>#</code></td></tr>
+<tr><td>Donate</td><td><code>/donate/</code></td></tr>
+</table>
+<p>Items with URL <code>#</code> become dropdown menus. Items with a real URL become regular links. The "Donate" item becomes the red button on the right.</p>
+
+<h3>Secondary Navigation (dropdown sub-items):</h3>
+<table>
+<tr><th>Label</th><th>URL</th></tr>
+<tr><td>Program: Ongoing Projects</td><td><code>/ongoing-projects/</code></td></tr>
+<tr><td>Program: Past Projects</td><td><code>/past-projects/</code></td></tr>
+<tr><td>Gallery: Photos</td><td><code>/gallery/</code></td></tr>
+<tr><td>Gallery: Videos</td><td><code>/videos/</code></td></tr>
+<tr><td>Get Involved: About Us</td><td><code>/about/</code></td></tr>
+<tr><td>Get Involved: Contact Us</td><td><code>/contact/</code></td></tr>
+</table>
+<p>The format is always: <strong>ParentLabel: ChildLabel</strong> (colon and space between parent and child). The parent name must match the primary nav label exactly.</p>
+<p>Click Save. The footer links are also generated from this same navigation automatically.</p>
+
+<h2>13. How to Change Logo or Site Title</h2>
+<ul>
+<li>In the sidebar click Settings, then General, to change the Title and Description</li>
+<li>For the Logo: click Settings, then Design and branding, then Customize</li>
+<li>Upload the new logo (WebP format)</li>
+<li>Click Save when done</li>
+</ul>
+
+<h2>14. The Language Button (English / Hindi)</h2>
+<p>The website has an EN and a Hindi button at the top right. Visitors click it to read the site in Hindi. It uses automatic translation and works on the live website. You do not need to maintain it.</p>
+
+<h2>15. How to Use Tags – Quick Reference</h2>
+<p>Tags control where content appears on the website. Always use the correct tag, in small letters with hyphens.</p>
+<table>
+<tr><th>Tag</th><th>Use For</th><th>One post only?</th></tr>
+<tr><td><code>ongoing-project</code></td><td>Current project posts</td><td>No (multiple)</td></tr>
+<tr><td><code>past-project</code></td><td>Completed project posts (title only)</td><td>No (multiple)</td></tr>
+<tr><td><code>gallery</code></td><td>Photo posts</td><td>No (multiple)</td></tr>
+<tr><td><code>video</code></td><td>Video posts</td><td>No (multiple)</td></tr>
+<tr><td><code>event</code></td><td>Event posts</td><td>No (multiple)</td></tr>
+<tr><td><code>partner</code></td><td>Partner list (bullets in body)</td><td>Yes</td></tr>
+<tr><td><code>stats</code></td><td>Impact numbers band (bold number + label)</td><td>Yes</td></tr>
+<tr><td><code>milestone</code></td><td>Timeline (bold year + description)</td><td>Yes</td></tr>
+<tr><td><code>hero-slider</code></td><td>Home background images (add images in body)</td><td>Yes</td></tr>
+<tr><td><code>home-focus-intro</code></td><td>Focus section heading + subtitle</td><td>Yes</td></tr>
+<tr><td><code>home-focus-child</code></td><td>Child Protection card on home</td><td>Yes</td></tr>
+<tr><td><code>home-focus-livelihood</code></td><td>Livelihood card on home</td><td>Yes</td></tr>
+<tr><td><code>home-story</code></td><td>Our Story section on home</td><td>Yes</td></tr>
+<tr><td><code>about-story</code></td><td>About page story block</td><td>Yes</td></tr>
+<tr><td><code>about-mission</code></td><td>About page mission card</td><td>Yes</td></tr>
+<tr><td><code>about-vision</code></td><td>About page vision card</td><td>Yes</td></tr>
+<tr><td><code>about-where</code></td><td>About page Where We Work block</td><td>Yes</td></tr>
+<tr><td><code>donate-info</code></td><td>Donate page card content</td><td>Yes</td></tr>
+</table>
+<p><span class="imp">Important:</span> Never delete these tags. For tags marked "Yes" (one post only), edit the existing post instead of making a new one.</p>
+
+<h2>16. Guidelines to Follow</h2>
+<ul>
+<li>Images must be WebP format only, do not upload JPG or PNG</li>
+<li>Always add the correct Tag before publishing a post</li>
+<li>Always add a Feature Image to ongoing project, gallery and video posts</li>
+<li>For "one post" tags (partner, stats, milestone, hero-slider, home- and about- ones, donate-info), edit the existing post instead of making a new one</li>
+<li>Do not delete any pages, only edit the content inside them</li>
+<li>Do not change the page slugs (URLs) listed in section 10</li>
+<li>Set the Excerpt on each page for the description text to appear</li>
+<li>If you do not see your change, refresh the page with Ctrl + Shift + R together</li>
+<li>Save before closing, always click Update or Publish before leaving</li>
+<li>The Navigation menu (header and footer links) is managed from Settings, Navigation</li>
+</ul>
+
+</body>
+</html>
